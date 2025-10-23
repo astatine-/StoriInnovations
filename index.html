@@ -1,78 +1,693 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stori Innovations | Marketing by Amita Tanksali</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.3/dist/tailwind.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amita Tanksali - Marketing Freelancer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #ec4899;
+            --dark-color: #1e293b;
+            --light-color: #f8fafc;
+            --text-color: #334155;
+            --accent-color: #8b5cf6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.9) 0%, rgba(139, 92, 246, 0.9) 100%),
+                        url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1600&h=900&fit=crop') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            padding: 0 2rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+        }
+
+        .hero .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: white;
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 2rem;
+            background: var(--light-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-color);
+            margin-bottom: 3rem;
+            opacity: 0.8;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            object-fit: cover;
+            height: 500px;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-color);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .company-tag {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            padding: 2.5rem;
+            background: var(--light-color);
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.2);
+            border-color: var(--primary-color);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+
+        .service-card p {
+            line-height: 1.8;
+            color: var(--text-color);
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-item h4 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 2rem;
+            background: var(--light-color);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-color);
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-method:hover {
+            transform: translateX(10px);
+        }
+
+        .contact-method-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 2rem 0;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero .tagline {
+                font-size: 1rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-image {
+                height: 400px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            .cta-button {
+                padding: 0.8rem 2rem;
+                font-size: 0.9rem;
+            }
+
+            .about-image {
+                height: 300px;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+            }
+        }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Amita Tanksali</div>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" onclick="closeMenu()">Home</a></li>
+                <li><a href="#about" onclick="closeMenu()">About</a></li>
+                <li><a href="#services" onclick="closeMenu()">Services</a></li>
+                <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <!-- Header -->
-  <header class="bg-white shadow-sm">
-    <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
-      <h1 class="text-2xl font-bold text-indigo-600">Stori Innovations</h1>
-      <nav class="space-x-6">
-        <a href="#services" class="text-gray-700 hover:text-indigo-600">Services</a>
-        <a href="#about" class="text-gray-700 hover:text-indigo-600">About</a>
-        <a href="#contact" class="text-gray-700 hover:text-indigo-600">Contact</a>
-      </nav>
-    </div>
-  </header>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Amita Tanksali</h1>
+            <p class="subtitle">Marketing Freelancer & Strategic Consultant</p>
+            <p class="tagline">Transforming brands through creative storytelling and data-driven strategies</p>
+            <a href="#contact" class="cta-button">Let's Work Together</a>
+        </div>
+    </section>
 
-  <!-- Hero Section -->
-  <section class="text-center py-20 bg-gradient-to-r from-indigo-500 to-purple-600 text-white">
-    <h2 class="text-4xl font-bold mb-4">Marketing that Tells Your Story</h2>
-    <p class="text-lg mb-6">Hi, I’m <strong>Amita Tanksali</strong> — helping brands grow through storytelling, strategy, and smart digital marketing.</p>
-    <a href="#contact" class="bg-white text-indigo-600 font-semibold px-6 py-3 rounded-lg shadow hover:bg-indigo-50 transition">Work With Me</a>
-  </section>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle">Passionate about creating meaningful brand experiences</p>
+            <div class="about-content">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=1000&fit=crop" alt="Amita Tanksali" class="about-image">
+                <div class="about-text">
+                    <p class="company-tag">Stori Innovations</p>
+                    <h3>Crafting Stories That Convert</h3>
+                    <p>With years of experience in digital marketing and brand strategy, I help businesses tell their stories in ways that resonate with their audience and drive real results.</p>
+                    <p>My approach combines creative thinking with analytical insights to deliver marketing solutions that are both engaging and effective. Whether you're a startup finding your voice or an established brand looking to evolve, I'm here to help you navigate the ever-changing marketing landscape.</p>
+                    <p>From content strategy to social media management, SEO to email campaigns, I bring a holistic perspective to every project, ensuring your brand message is consistent, compelling, and conversion-focused.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Services -->
-  <section id="services" class="max-w-6xl mx-auto py-16 px-4">
-    <h3 class="text-3xl font-bold text-center mb-12">Services</h3>
-    <div class="grid md:grid-cols-3 gap-8 text-center">
-      <div class="bg-white shadow-lg rounded-2xl p-8">
-        <h4 class="text-xl font-semibold mb-3 text-indigo-600">Brand Strategy</h4>
-        <p>Clarify your message, define your audience, and craft a consistent brand identity that connects.</p>
-      </div>
-      <div class="bg-white shadow-lg rounded-2xl p-8">
-        <h4 class="text-xl font-semibold mb-3 text-indigo-600">Social Media Marketing</h4>
-        <p>Grow your community and engagement with targeted, story-driven campaigns across platforms.</p>
-      </div>
-      <div class="bg-white shadow-lg rounded-2xl p-8">
-        <h4 class="text-xl font-semibold mb-3 text-indigo-600">Content & Campaigns</h4>
-        <p>Create content that converts—blogs, visuals, and campaigns designed to boost awareness and results.</p>
-      </div>
-    </div>
-  </section>
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Services</h2>
+            <p class="section-subtitle">Comprehensive marketing solutions tailored to your needs</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3>Brand Strategy</h3>
+                    <p>Develop a powerful brand identity that sets you apart from the competition and resonates with your target audience.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>Social Media Marketing</h3>
+                    <p>Create engaging content and build meaningful connections with your audience across all major social platforms.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✍️</div>
+                    <h3>Content Marketing</h3>
+                    <p>Craft compelling stories that educate, entertain, and inspire your audience while driving business growth.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Digital Analytics</h3>
+                    <p>Turn data into actionable insights with comprehensive analytics and performance tracking.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3>SEO & SEM</h3>
+                    <p>Improve your online visibility and drive qualified traffic through strategic search optimization.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📧</div>
+                    <h3>Email Marketing</h3>
+                    <p>Build and nurture customer relationships with targeted email campaigns that convert.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- About -->
-  <section id="about" class="bg-indigo-50 py-16 px-4">
-    <div class="max-w-4xl mx-auto text-center">
-      <h3 class="text-3xl font-bold mb-6">About Amita</h3>
-      <p class="text-lg leading-relaxed">
-        With years of experience in digital marketing and brand storytelling, I help startups and small businesses find their voice in a crowded market. Through Stori Innovations, I work closely with clients to build marketing strategies that are authentic, measurable, and creative.
-      </p>
-    </div>
-  </section>
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h4>50+</h4>
+                    <p>Projects Completed</p>
+                </div>
+                <div class="stat-item">
+                    <h4>35+</h4>
+                    <p>Happy Clients</p>
+                </div>
+                <div class="stat-item">
+                    <h4>5+</h4>
+                    <p>Years Experience</p>
+                </div>
+                <div class="stat-item">
+                    <h4>200%</h4>
+                    <p>Average ROI Growth</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Contact -->
-  <section id="contact" class="max-w-4xl mx-auto py-16 px-4 text-center">
-    <h3 class="text-3xl font-bold mb-6">Let’s Connect</h3>
-    <p class="mb-8">Ready to tell your brand’s story? Reach out and let’s start something impactful together.</p>
-    <a href="mailto:amita@storiinnovations.com" class="bg-indigo-600 text-white px-8 py-3 rounded-lg hover:bg-indigo-700 transition">
-      Email Amita
-    </a>
-  </section>
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Connect</h2>
+            <p class="section-subtitle">Ready to take your marketing to the next level?</p>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>Have a project in mind or just want to chat about marketing? I'd love to hear from you!</p>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <span class="contact-method-icon">📧</span>
+                            <div>
+                                <strong>Email</strong><br>
+                                <a href="mailto:amita@storiinnovations.com" style="color: var(--primary-color); text-decoration: none;">amita@storiinnovations.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <span class="contact-method-icon">📱</span>
+                            <div>
+                                <strong>Phone</strong><br>
+                                +1 (555) 123-4567
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <span class="contact-method-icon">📍</span>
+                            <div>
+                                <strong>Location</strong><br>
+                                Available for remote projects worldwide
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-400 text-center py-6 text-sm">
-    © <span id="year"></span> Stori Innovations | Marketing by Amita Tanksali
-  </footer>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Amita Tanksali | Stori Innovations | All rights reserved</p>
+        </div>
+    </footer>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
 
+        function closeMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.remove('active');
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            event.target.reset();
+        }
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+    </script>
 </body>
 </html>
