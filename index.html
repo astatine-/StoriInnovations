@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amita Tanksali - Marketing Freelancer</title>
+    <title>Stori Innovations — Building Businesses That Matter</title>
     <style>
         * {
             margin: 0;
@@ -18,6 +18,12 @@
             --light-color: #f8fafc;
             --text-color: #334155;
             --accent-color: #8b5cf6;
+            --mintorie-color: #5585c4;
+            --mintorie-accent: #adcc78;
+            --pasteport-color: #0f172a;
+            --pasteport-accent: #6366f1;
+            --marketing-color: #ec4899;
+            --marketing-accent: #f97316;
         }
 
         body {
@@ -35,7 +41,7 @@
             z-index: 1000;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
         }
 
@@ -49,9 +55,14 @@
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 1.4rem;
+            font-weight: 800;
             color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--dark-color);
         }
 
         .nav-links {
@@ -83,8 +94,7 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.9) 0%, rgba(139, 92, 246, 0.9) 100%),
-                        url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1600&h=900&fit=crop') center/cover;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #312e81 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -92,55 +102,114 @@
             color: white;
             position: relative;
             padding: 0 2rem;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
+            top: -100px;
+            right: -100px;
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+            bottom: -50px;
+            left: -50px;
+            border-radius: 50%;
         }
 
         .hero-content {
             max-width: 800px;
             animation: fadeInUp 1s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-eyebrow {
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #a5b4fc;
+            margin-bottom: 1rem;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
             font-weight: 800;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            line-height: 1.1;
+            letter-spacing: -1px;
         }
 
-        .hero .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: 300;
+        .hero h1 span {
+            background: linear-gradient(135deg, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero .tagline {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
+            opacity: 0.8;
+            font-weight: 300;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 1rem 2.5rem;
-            background: white;
-            color: var(--primary-color);
+            padding: 0.9rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.5);
         }
 
-        /* About Section */
-        .about {
-            padding: 6rem 2rem;
-            background: var(--light-color);
+        .cta-button-outline {
+            display: inline-block;
+            padding: 0.9rem 2.5rem;
+            background: transparent;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            transition: all 0.3s ease;
         }
 
+        .cta-button-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Section Shared */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -151,105 +220,288 @@
             font-size: 2.5rem;
             margin-bottom: 1rem;
             color: var(--dark-color);
-            font-weight: 700;
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
         .section-subtitle {
             text-align: center;
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             color: var(--text-color);
-            margin-bottom: 3rem;
-            opacity: 0.8;
+            margin-bottom: 4rem;
+            opacity: 0.75;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .about-content {
+        /* About Section */
+        .about {
+            padding: 6rem 2rem;
+            background: var(--light-color);
+        }
+
+        .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 5rem;
             align-items: center;
-        }
-
-        .about-image {
-            width: 100%;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            object-fit: cover;
-            height: 500px;
         }
 
         .about-text h3 {
             font-size: 2rem;
             margin-bottom: 1.5rem;
             color: var(--dark-color);
+            font-weight: 700;
         }
 
         .about-text p {
-            font-size: 1.1rem;
-            line-height: 1.8;
+            font-size: 1.05rem;
+            line-height: 1.9;
             margin-bottom: 1.5rem;
+            color: var(--text-color);
         }
 
-        .company-tag {
-            font-size: 0.9rem;
-            color: var(--accent-color);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+        .about-values {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
         }
 
-        /* Services Section */
-        .services {
+        .value-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .value-icon {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .value-item h4 {
+            font-size: 1.1rem;
+            color: var(--dark-color);
+            margin-bottom: 0.3rem;
+        }
+
+        .value-item p {
+            font-size: 0.95rem;
+            opacity: 0.75;
+        }
+
+        /* Business Lines Section */
+        .businesses {
             padding: 6rem 2rem;
             background: white;
         }
 
-        .services-grid {
+        .businesses-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
-            margin-top: 3rem;
         }
 
-        .service-card {
-            padding: 2.5rem;
-            background: var(--light-color);
-            border-radius: 15px;
+        .business-card {
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
         }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.2);
-            border-color: var(--primary-color);
+        .business-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
         }
 
-        .service-icon {
-            font-size: 3rem;
+        .business-card-header {
+            padding: 2.5rem 2rem 2rem;
+            position: relative;
+        }
+
+        .business-card-header.mintorie {
+            background: linear-gradient(135deg, #5585c4, #3a6aab);
+        }
+
+        .business-card-header.pasteport {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+        }
+
+        .business-card-header.marketing {
+            background: linear-gradient(135deg, #ec4899, #f97316);
+        }
+
+        .business-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .business-type {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 600;
+        }
+
+        .business-card-body {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .business-tagline {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .business-desc {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .business-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .business-features li {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            padding: 0.4rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .business-features li::before {
+            content: '✓';
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .mintorie-features li::before { color: var(--mintorie-color); }
+        .pasteport-features li::before { color: var(--pasteport-accent); }
+        .marketing-features li::before { color: var(--marketing-color); }
+
+        .business-link {
+            display: inline-block;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .business-link.mintorie {
+            background: var(--mintorie-color);
+            color: white;
+        }
+
+        .business-link.mintorie:hover {
+            background: #3a6aab;
+        }
+
+        .business-link.pasteport {
+            background: var(--pasteport-accent);
+            color: white;
+        }
+
+        .business-link.pasteport:hover {
+            background: #4f46e5;
+        }
+
+        .business-link.marketing {
+            background: var(--marketing-color);
+            color: white;
+        }
+
+        .business-link.marketing:hover {
+            background: #db2777;
+        }
+
+        /* Marketing Section (detailed) */
+        .marketing-detail {
+            padding: 6rem 2rem;
+            background: var(--light-color);
+        }
+
+        .marketing-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: start;
+        }
+
+        .marketing-intro h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .marketing-intro p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: var(--text-color);
             margin-bottom: 1.5rem;
         }
 
-        .service-card h3 {
+        .services-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .service-pill {
+            padding: 1.2rem;
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: border-color 0.3s ease;
+        }
+
+        .service-pill:hover {
+            border-color: var(--marketing-color);
+        }
+
+        .service-pill .icon {
             font-size: 1.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-pill h4 {
+            font-size: 0.95rem;
             color: var(--dark-color);
+            font-weight: 600;
         }
 
-        .service-card p {
-            line-height: 1.8;
-            color: var(--text-color);
-        }
-
-        /* Stats Section */
+        /* Stats */
         .stats {
             padding: 4rem 2rem;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            background: linear-gradient(135deg, var(--dark-color) 0%, #312e81 100%);
             color: white;
         }
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
             text-align: center;
         }
 
@@ -257,17 +509,21 @@
             font-size: 3rem;
             margin-bottom: 0.5rem;
             font-weight: 800;
+            background: linear-gradient(135deg, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .stat-item p {
-            font-size: 1.1rem;
-            opacity: 0.9;
+            font-size: 1rem;
+            opacity: 0.8;
         }
 
         /* Contact Section */
         .contact {
             padding: 6rem 2rem;
-            background: var(--light-color);
+            background: white;
         }
 
         .contact-content {
@@ -279,21 +535,23 @@
         }
 
         .contact-info h3 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin-bottom: 1.5rem;
             color: var(--dark-color);
+            font-weight: 700;
         }
 
         .contact-info p {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             line-height: 1.8;
             margin-bottom: 2rem;
+            color: var(--text-color);
         }
 
         .contact-methods {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 1rem;
         }
 
         .contact-method {
@@ -301,25 +559,23 @@
             align-items: center;
             gap: 1rem;
             padding: 1rem;
-            background: white;
+            background: var(--light-color);
             border-radius: 10px;
             transition: transform 0.3s ease;
         }
 
         .contact-method:hover {
-            transform: translateX(10px);
+            transform: translateX(8px);
         }
 
         .contact-method-icon {
             font-size: 1.5rem;
-            color: var(--primary-color);
         }
 
         .contact-form {
-            background: white;
+            background: var(--light-color);
             padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
         }
 
         .form-group {
@@ -331,21 +587,26 @@
             margin-bottom: 0.5rem;
             font-weight: 600;
             color: var(--dark-color);
+            font-size: 0.9rem;
         }
 
         .form-group input,
-        .form-group textarea {
+        .form-group textarea,
+        .form-group select {
             width: 100%;
-            padding: 0.8rem;
+            padding: 0.8rem 1rem;
             border: 2px solid #e2e8f0;
-            border-radius: 8px;
+            border-radius: 10px;
             font-size: 1rem;
             transition: border-color 0.3s ease;
             font-family: inherit;
+            background: white;
+            color: var(--text-color);
         }
 
         .form-group input:focus,
-        .form-group textarea:focus {
+        .form-group textarea:focus,
+        .form-group select:focus {
             outline: none;
             border-color: var(--primary-color);
         }
@@ -358,11 +619,11 @@
         .submit-button {
             width: 100%;
             padding: 1rem;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             color: white;
             border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
+            border-radius: 10px;
+            font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -377,12 +638,59 @@
         footer {
             background: var(--dark-color);
             color: white;
-            text-align: center;
-            padding: 2rem;
+            padding: 3rem 2rem;
         }
 
-        footer p {
-            opacity: 0.8;
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-brand .logo {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            opacity: 0.6;
+            line-height: 1.7;
+        }
+
+        .footer-col h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            opacity: 0.5;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            opacity: 0.75;
+            margin-bottom: 0.6rem;
+            transition: opacity 0.2s;
+        }
+
+        .footer-col a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 0.85rem;
+            opacity: 0.5;
         }
 
         /* Animations */
@@ -397,7 +705,19 @@
             }
         }
 
-        /* Responsive Design */
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .businesses-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 position: fixed;
@@ -410,6 +730,7 @@
                 transition: 0.3s;
                 box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
                 padding: 2rem 0;
+                gap: 1rem;
             }
 
             .nav-links.active {
@@ -424,35 +745,38 @@
                 font-size: 2.5rem;
             }
 
-            .hero .subtitle {
-                font-size: 1.2rem;
-            }
-
             .hero .tagline {
                 font-size: 1rem;
             }
 
-            .about-content,
+            .hero-ctas {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-grid,
+            .marketing-inner,
             .contact-content {
                 grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .about-image {
-                height: 400px;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 2.5rem;
             }
 
             .section-title {
                 font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+
+            .services-list {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
         }
 
@@ -461,21 +785,8 @@
                 font-size: 2rem;
             }
 
-            .hero .subtitle {
-                font-size: 1rem;
-            }
-
-            .cta-button {
-                padding: 0.8rem 2rem;
-                font-size: 0.9rem;
-            }
-
-            .about-image {
-                height: 300px;
-            }
-
-            .contact-form {
-                padding: 1.5rem;
+            .stats-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -484,12 +795,12 @@
     <!-- Header -->
     <header>
         <nav>
-            <div class="logo">Amita Tanksali</div>
+            <div class="logo">Stori <span>Innovations</span></div>
             <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home" onclick="closeMenu()">Home</a></li>
-                <li><a href="#about" onclick="closeMenu()">About</a></li>
-                <li><a href="#services" onclick="closeMenu()">Services</a></li>
+                <li><a href="#businesses" onclick="closeMenu()">Ventures</a></li>
+                <li><a href="#marketing" onclick="closeMenu()">Consulting</a></li>
                 <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
             </ul>
         </nav>
@@ -498,67 +809,123 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Amita Tanksali</h1>
-            <p class="subtitle">Marketing Freelancer & Strategic Consultant</p>
-            <p class="tagline">Transforming brands through creative storytelling and data-driven strategies</p>
-            <a href="#contact" class="cta-button">Let's Work Together</a>
+            <p class="hero-eyebrow">Stori Innovations</p>
+            <h1>Building businesses<br><span>that tell stories</span></h1>
+            <p class="tagline">An umbrella of ventures spanning e-commerce, developer tools, and marketing — united by a belief that great products change lives.</p>
+            <div class="hero-ctas">
+                <a href="#businesses" class="cta-button">Explore Our Ventures</a>
+                <a href="#contact" class="cta-button-outline">Get In Touch</a>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <p class="section-subtitle">Passionate about creating meaningful brand experiences</p>
-            <div class="about-content">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=1000&fit=crop" alt="Amita Tanksali" class="about-image">
+            <div class="about-grid">
                 <div class="about-text">
-                    <p class="company-tag">Stori Innovations</p>
-                    <h3>Crafting Stories That Convert</h3>
-                    <p>With years of experience in digital marketing and brand strategy, I help businesses tell their stories in ways that resonate with their audience and drive real results.</p>
-                    <p>My approach combines creative thinking with analytical insights to deliver marketing solutions that are both engaging and effective. Whether you're a startup finding your voice or an established brand looking to evolve, I'm here to help you navigate the ever-changing marketing landscape.</p>
-                    <p>From content strategy to social media management, SEO to email campaigns, I bring a holistic perspective to every project, ensuring your brand message is consistent, compelling, and conversion-focused.</p>
+                    <h2 class="section-title" style="text-align:left; margin-bottom: 1rem;">Who We Are</h2>
+                    <p>Stori Innovations is a portfolio of ventures built around authentic products, thoughtful technology, and strategic marketing. We believe that every business has a story worth telling — and we build the tools and brands to tell them well.</p>
+                    <p>From celebrating India's artisan heritage to solving everyday developer friction, each of our ventures reflects a commitment to quality and genuine impact.</p>
+                </div>
+                <div class="about-values">
+                    <div class="value-item">
+                        <div class="value-icon">🧠</div>
+                        <div>
+                            <h4>Purposeful Building</h4>
+                            <p>Every venture we create solves a real problem for a real audience.</p>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">🎨</div>
+                        <div>
+                            <h4>Craft Over Convention</h4>
+                            <p>We obsess over quality — in product, in content, and in customer experience.</p>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">🌏</div>
+                        <div>
+                            <h4>Global Mindset, Local Roots</h4>
+                            <p>Built in India, designed for the world — celebrating what's authentically ours.</p>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">🚀</div>
+                        <div>
+                            <h4>Bias Toward Action</h4>
+                            <p>We ship, learn, and iterate — moving fast without sacrificing substance.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
+    <!-- Business Lines Section -->
+    <section class="businesses" id="businesses">
         <div class="container">
-            <h2 class="section-title">Services</h2>
-            <p class="section-subtitle">Comprehensive marketing solutions tailored to your needs</p>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🎯</div>
-                    <h3>Brand Strategy</h3>
-                    <p>Develop a powerful brand identity that sets you apart from the competition and resonates with your target audience.</p>
+            <h2 class="section-title">Our Ventures</h2>
+            <p class="section-subtitle">Three distinct businesses, one shared commitment to doing things right.</p>
+            <div class="businesses-grid">
+
+                <!-- Mintorie -->
+                <div class="business-card">
+                    <div class="business-card-header mintorie">
+                        <div class="business-logo">Mintorie</div>
+                        <div class="business-type">E-Commerce · Indian Handicrafts</div>
+                    </div>
+                    <div class="business-card-body">
+                        <div class="business-tagline">India's best handicrafts — great prices, authentic quality.</div>
+                        <p class="business-desc">Mintorie is a curated e-commerce marketplace celebrating India's rich artisan heritage. We connect skilled craftspeople with customers who value authenticity, offering genuine Made-in-India handicrafts with free shipping and competitive pricing.</p>
+                        <ul class="business-features mintorie-features">
+                            <li>Authentic handcrafted Indian goods</li>
+                            <li>Free shipping on all orders</li>
+                            <li>Directly supporting Indian artisans</li>
+                            <li>Curated for quality and originality</li>
+                        </ul>
+                        <a href="https://mintorie.com" target="_blank" rel="noopener" class="business-link mintorie">Visit Mintorie →</a>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">📱</div>
-                    <h3>Social Media Marketing</h3>
-                    <p>Create engaging content and build meaningful connections with your audience across all major social platforms.</p>
+
+                <!-- PastePort -->
+                <div class="business-card">
+                    <div class="business-card-header pasteport">
+                        <div class="business-logo">PastePort</div>
+                        <div class="business-type">Developer Tool · Clipboard Sync</div>
+                    </div>
+                    <div class="business-card-body">
+                        <div class="business-tagline">Copy here. Paste there.</div>
+                        <p class="business-desc">PastePort is a cross-device clipboard-sharing app built for developers, designers, and power users. Transfer text, links, images, and files instantly between Android, Chrome, and terminal — encrypted end-to-end, no cables required.</p>
+                        <ul class="business-features pasteport-features">
+                            <li>AES-256-GCM end-to-end encryption</li>
+                            <li>Android, Chrome & CLI support</li>
+                            <li>Real-time delivery across devices</li>
+                            <li>Offline queuing & local history</li>
+                        </ul>
+                        <a href="https://pasteport.app" target="_blank" rel="noopener" class="business-link pasteport">Visit PastePort →</a>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">✍️</div>
-                    <h3>Content Marketing</h3>
-                    <p>Craft compelling stories that educate, entertain, and inspire your audience while driving business growth.</p>
+
+                <!-- Marketing Consultancy -->
+                <div class="business-card">
+                    <div class="business-card-header marketing">
+                        <div class="business-logo">Amita Tanksali</div>
+                        <div class="business-type">Marketing Consultancy</div>
+                    </div>
+                    <div class="business-card-body">
+                        <div class="business-tagline">Transforming brands through creative storytelling.</div>
+                        <p class="business-desc">Strategic marketing consultancy helping businesses find their voice and grow with intention. From brand strategy to social media to SEO, we bring data-driven thinking and creative execution to every engagement.</p>
+                        <ul class="business-features marketing-features">
+                            <li>Brand strategy & identity</li>
+                            <li>Content & social media marketing</li>
+                            <li>SEO, SEM & digital analytics</li>
+                            <li>Email campaigns that convert</li>
+                        </ul>
+                        <a href="#marketing" class="business-link marketing">Learn More →</a>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">📊</div>
-                    <h3>Digital Analytics</h3>
-                    <p>Turn data into actionable insights with comprehensive analytics and performance tracking.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🔍</div>
-                    <h3>SEO & SEM</h3>
-                    <p>Improve your online visibility and drive qualified traffic through strategic search optimization.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📧</div>
-                    <h3>Email Marketing</h3>
-                    <p>Build and nurture customer relationships with targeted email campaigns that convert.</p>
-                </div>
+
             </div>
         </div>
     </section>
@@ -568,20 +935,62 @@
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-item">
+                    <h4>3</h4>
+                    <p>Active Ventures</p>
+                </div>
+                <div class="stat-item">
                     <h4>50+</h4>
-                    <p>Projects Completed</p>
+                    <p>Marketing Projects</p>
                 </div>
                 <div class="stat-item">
                     <h4>35+</h4>
                     <p>Happy Clients</p>
                 </div>
                 <div class="stat-item">
-                    <h4>5+</h4>
-                    <p>Years Experience</p>
-                </div>
-                <div class="stat-item">
                     <h4>200%</h4>
-                    <p>Average ROI Growth</p>
+                    <p>Avg. ROI Growth</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marketing Detail Section -->
+    <section class="marketing-detail" id="marketing">
+        <div class="container">
+            <h2 class="section-title">Marketing Consultancy</h2>
+            <p class="section-subtitle">Strategic marketing that drives real results — from brand identity to measurable growth.</p>
+            <div class="marketing-inner">
+                <div class="marketing-intro">
+                    <h3>Crafting Stories That Convert</h3>
+                    <p>With years of experience in digital marketing and brand strategy, Amita Tanksali helps businesses tell their stories in ways that resonate with their audience and drive real results.</p>
+                    <p>The approach combines creative thinking with analytical insights — delivering marketing solutions that are both engaging and effective. Whether you're a startup finding your voice or an established brand looking to evolve, the goal is a consistent, compelling, conversion-focused presence.</p>
+                    <a href="#contact" class="cta-button" style="margin-top:0.5rem;">Work Together</a>
+                </div>
+                <div class="services-list">
+                    <div class="service-pill">
+                        <div class="icon">🎯</div>
+                        <h4>Brand Strategy</h4>
+                    </div>
+                    <div class="service-pill">
+                        <div class="icon">📱</div>
+                        <h4>Social Media</h4>
+                    </div>
+                    <div class="service-pill">
+                        <div class="icon">✍️</div>
+                        <h4>Content Marketing</h4>
+                    </div>
+                    <div class="service-pill">
+                        <div class="icon">📊</div>
+                        <h4>Digital Analytics</h4>
+                    </div>
+                    <div class="service-pill">
+                        <div class="icon">🔍</div>
+                        <h4>SEO &amp; SEM</h4>
+                    </div>
+                    <div class="service-pill">
+                        <div class="icon">📧</div>
+                        <h4>Email Marketing</h4>
+                    </div>
                 </div>
             </div>
         </div>
@@ -590,32 +999,39 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
-            <h2 class="section-title">Let's Connect</h2>
-            <p class="section-subtitle">Ready to take your marketing to the next level?</p>
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Questions about our ventures, or ready to work together on marketing? We'd love to hear from you.</p>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>Get In Touch</h3>
-                    <p>Have a project in mind or just want to chat about marketing? I'd love to hear from you!</p>
+                    <h3>Let's Talk</h3>
+                    <p>Whether you're interested in stocking Mintorie products, integrating PastePort, or exploring a marketing partnership — reach out.</p>
                     <div class="contact-methods">
                         <div class="contact-method">
                             <span class="contact-method-icon">📧</span>
                             <div>
                                 <strong>Email</strong><br>
-                                <a href="mailto:amita@storiinnovations.com" style="color: var(--primary-color); text-decoration: none;">amita@storiinnovations.com</a>
+                                <a href="mailto:hello@storiinnovations.com" style="color: var(--primary-color); text-decoration: none;">hello@storiinnovations.com</a>
                             </div>
                         </div>
                         <div class="contact-method">
-                            <span class="contact-method-icon">📱</span>
+                            <span class="contact-method-icon">🛍️</span>
                             <div>
-                                <strong>Phone</strong><br>
-                                +1 (555) 123-4567
+                                <strong>Mintorie</strong><br>
+                                <a href="https://mintorie.com" target="_blank" rel="noopener" style="color: var(--mintorie-color); text-decoration: none;">mintorie.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <span class="contact-method-icon">📋</span>
+                            <div>
+                                <strong>PastePort</strong><br>
+                                <a href="https://pasteport.app" target="_blank" rel="noopener" style="color: var(--pasteport-accent); text-decoration: none;">pasteport.app</a>
                             </div>
                         </div>
                         <div class="contact-method">
                             <span class="contact-method-icon">📍</span>
                             <div>
                                 <strong>Location</strong><br>
-                                Available for remote projects worldwide
+                                India · Available worldwide
                             </div>
                         </div>
                     </div>
@@ -623,15 +1039,25 @@
                 <form class="contact-form" onsubmit="handleSubmit(event)">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" id="name" name="name" required placeholder="Your name">
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email" required placeholder="your@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="regarding">Regarding</label>
+                        <select id="regarding" name="regarding">
+                            <option value="">Select a venture…</option>
+                            <option value="mintorie">Mintorie</option>
+                            <option value="pasteport">PastePort</option>
+                            <option value="marketing">Marketing Consultancy</option>
+                            <option value="other">Other</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="message">Message</label>
-                        <textarea id="message" name="message" required></textarea>
+                        <textarea id="message" name="message" required placeholder="Tell us what's on your mind…"></textarea>
                     </div>
                     <button type="submit" class="submit-button">Send Message</button>
                 </form>
@@ -641,52 +1067,62 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <p>&copy; 2025 Amita Tanksali | Stori Innovations | All rights reserved</p>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span class="logo">Stori <span style="color:#a5b4fc">Innovations</span></span>
+                <p>An umbrella of ventures spanning e-commerce, developer tools, and marketing — united by craft and purpose.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Ventures</h4>
+                <a href="https://mintorie.com" target="_blank" rel="noopener">Mintorie</a>
+                <a href="https://pasteport.app" target="_blank" rel="noopener">PastePort</a>
+                <a href="#marketing">Consulting</a>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <a href="mailto:hello@storiinnovations.com">Email Us</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Stori Innovations. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
         function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
+            document.getElementById('navLinks').classList.toggle('active');
         }
 
         function closeMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.remove('active');
+            document.getElementById('navLinks').classList.remove('active');
         }
 
-        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
 
-        // Form submission
         function handleSubmit(event) {
             event.preventDefault();
-            alert('Thank you for your message! I will get back to you soon.');
+            alert('Thanks for reaching out! We\'ll get back to you soon.');
             event.target.reset();
         }
 
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-            }
+            header.style.background = window.scrollY > 100
+                ? 'rgba(255, 255, 255, 0.98)'
+                : 'rgba(255, 255, 255, 0.95)';
         });
     </script>
 </body>
